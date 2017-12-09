@@ -17,4 +17,4 @@ NLP Final Project
 
 To get Glove pre-trained embeddings:
 
-wget http://nlp.stanford.edu/data/glove.840B.300d.zip
+$ wget http://nlp.stanford.edu/data/glove.840B.300d.zip
