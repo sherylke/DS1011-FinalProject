@@ -6,11 +6,11 @@ import os
 
 class DirConfig(object):
     DEBUG = 0
-    W2V_FILE = './embeddings/GoogleNews-vectors-negative300.bin'
-    GLOVE_FILE = './embeddings/glove.840B.300d.txt'
-    #GLOVE_FILE = './embeddings/glove.42B.300d.txt'
+    W2V_FILE = '../embeddings/GoogleNews-vectors-negative300.bin'
+    GLOVE_FILE = '../embeddings/glove.840B.300d.txt'
+    #GLOVE_FILE = '../embeddings/glove.42B.300d.txt'
     BASE_DIR = './'
-    DATA_DIR = './dataset/'
+    DATA_DIR = '../data/'
     TRAIN_FILE = DATA_DIR + 'train.tsv'
     DEV_FILE = DATA_DIR + 'dev.tsv'
     TEST_FILE = DATA_DIR + 'test.tsv'
