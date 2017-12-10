@@ -27,9 +27,10 @@ def train_model():
 		print('--- load model from cache.')
     	# Compile model
         #for m in models:
-		model.compile(loss='binary_crossentropy', optimizer='nadam', metrics=['accuracy'])
+		#model.compile(loss='binary_crossentropy', optimizer='nadam', metrics=['accuracy'])
 		#model.compile(loss='binary_crossentropy', optimizer=TFOptimizer(tf.train.AdagradOptimizer(0.01)), metrics=['accuracy'])
-		return model, None, None, None
+		
+		#return model, None, None, None
 
     # Load train/test data set
 	train_x1, train_x2, dev_x1, dev_x2, test_x1, test_x2, train_labels, dev_labels, test_ids, word_index, char_index = get_text_sequence()
@@ -70,8 +71,9 @@ def train_model():
 		dev_data = [dev_x1, dev_x2]
 
     # Build model
-	model = build_model(embedding_matrix, word_index, char_index)
-	#model = build_model(embedding_matrix)
+	if model is None:
+		model = build_model(embedding_matrix, word_index, char_index)
+		#model = build_model(embedding_matrix)
 
     # Define model callbacks
 	early_stopping = EarlyStopping(monitor='val_loss', patience=5)
