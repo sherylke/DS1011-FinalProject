@@ -2,7 +2,9 @@ import numpy as np
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 #from keras.optimizers import TFOptimizer
 #from sklearn.model_selection import KFold
-from models.bimpm import build_model as build_bimpm
+#from models.bimpm import build_model as build_bimpm
+from models.decom_attn import decomposable_attention as decom_attn
+
 from config import (
     DirConfig, TrainConfig, TestConfig, BiMPMConfig
 )
@@ -25,9 +27,10 @@ def train_model():
 		print('--- load model from cache.')
     	# Compile model
         #for m in models:
-		model.compile(loss='binary_crossentropy', optimizer='nadam', metrics=['accuracy'])
+		#model.compile(loss='binary_crossentropy', optimizer='nadam', metrics=['accuracy'])
 		#model.compile(loss='binary_crossentropy', optimizer=TFOptimizer(tf.train.AdagradOptimizer(0.01)), metrics=['accuracy'])
-		return model, None, None, None
+		
+		#return model, None, None, None
 
     # Load train/test data set
 	train_x1, train_x2, dev_x1, dev_x2, test_x1, test_x2, train_labels, dev_labels, test_ids, word_index, char_index = get_text_sequence()
@@ -68,7 +71,9 @@ def train_model():
 		dev_data = [dev_x1, dev_x2]
 
     # Build model
-	model = build_model(embedding_matrix, word_index, char_index)
+	if model is None:
+		model = build_model(embedding_matrix, word_index, char_index)
+		#model = build_model(embedding_matrix)
 
     # Define model callbacks
 	early_stopping = EarlyStopping(monitor='val_loss', patience=5)
@@ -77,7 +82,7 @@ def train_model():
     # Training
 	history = model.fit(train_data, y=train_labels,
 		validation_data=(dev_data, dev_labels, dev_weight),
-        	# validation_split=TrainConfig.VALIDATION_SPLIT,
+        # validation_split=TrainConfig.VALIDATION_SPLIT,
 		epochs=TrainConfig.NB_EPOCH,
 		batch_size=TrainConfig.BATCH_SIZE, shuffle=True,
 		class_weight=class_weight,
@@ -117,13 +122,15 @@ def test_model(model=None, test_x1=None, test_x2=None, test_ids=None):
 	prediction = model.predict(
 		test_data, 
 		batch_size=TestConfig.BATCH_SIZE, verbose=1)
+    #predictions.append(preds)
 
+    #preds_mean = np.array(merge_several_folds_mean(predictions, len(models)))
 	create_submission(DirConfig.SUBM_DIR, config, prediction, test_ids)
 
 
 def build_model(embedding_matrix, word_index, char_index):
-	return build_bimpm(embedding_matrix, word_index, char_index)
-
+	#return build_bimpm(embedding_matrix, word_index, char_index)
+	return decom_attn(embedding_matrix, word_index, char_index)
 
 def main():
 	model, test_x1, test_x2, test_ids = train_model()
