@@ -77,16 +77,16 @@ def train_model():
 
     # Define model callbacks
 	early_stopping = EarlyStopping(monitor='val_loss', patience=5)
-	model_checkpoint = ModelCheckpoint(config.CHECKPOINT, save_best_only=True, save_weights_only=True)
+	#model_checkpoint = ModelCheckpoint(config.CHECKPOINT, save_best_only=True, save_weights_only=True)
 
     # Training
-	history = model.fit(train_data, y=train_labels,
-		validation_data=(dev_data, dev_labels, dev_weight),
+        history = model.fit(train_data, y=train_labels,
+                validation_data=(dev_data, dev_labels, dev_weight),
         # validation_split=TrainConfig.VALIDATION_SPLIT,
-		epochs=TrainConfig.NB_EPOCH,
-		batch_size=TrainConfig.BATCH_SIZE, shuffle=True,
-		class_weight=class_weight,
-		callbacks=[early_stopping, model_checkpoint])
+                epochs=TrainConfig.NB_EPOCH,
+                batch_size=TrainConfig.BATCH_SIZE, shuffle=True,
+                class_weight=class_weight,
+                callbacks=[early_stopping])
 	save_model(model, config)
 	save_training_history(DirConfig.HISTORYA_DIR, config, history)
 #    fold += 1
