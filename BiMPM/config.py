@@ -49,8 +49,8 @@ class TrainConfig(object):
     TEST_SIZE = 0.1
 #    RE_WEIGHT = True
     RE_WEIGHT = False
-    #BATCH_SIZE = 60
-    BATCH_SIZE = 1024
+    BATCH_SIZE = 60
+    #BATCH_SIZE = 1024
     #NB_EPOCH = 5 if DirConfig.DEBUG else 10
     NB_EPOCH = 1
     CLASS_WEIGHT = {0: 1.0, 1: 1.708574797505075}
@@ -75,8 +75,8 @@ class TrainConfig(object):
 class TestConfig(object):
 #    RE_WEIGHT = True
     RE_WEIGHT = False
-    #BATCH_SIZE = 60
-    BATCH_SIZE = 1024
+    BATCH_SIZE = 60
+    #BATCH_SIZE = 1024
     CLASS_WEIGHT = {0: 1.309028344, 1: 0.472001959}
 
 
