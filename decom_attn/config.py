@@ -83,7 +83,7 @@ class TestConfig(object):
 
 class BiMPMConfig(object):
     SEED = 2017 + 6
-    MODEL = 'BiMPM'
+    MODEL = 'DecomAttn'
     RNN_UNIT = 'gru'
     TRIAL = 5
     BASE_DIR = './models/'
