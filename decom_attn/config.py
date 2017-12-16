@@ -91,7 +91,7 @@ class BiMPMConfig(object):
     AGGREGATION_LSTM_DIM = 300
     DENSE_DIM = 100
     RATE_DROP_REPRES = 0.4
-    DROP_RATE = 0.1
+    DROP_RATE = 0.2
     WITH_HIGHWAY = 1
     MP_DIM = 10
     CHECKPOINT = './checkpoint/{}_trial_{}_db_{}.h5'.format(MODEL, TRIAL, DirConfig.DEBUG)
