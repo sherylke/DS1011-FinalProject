@@ -82,7 +82,7 @@ class TestConfig(object):
 
 
 class BiMPMConfig(object):
-    SEED = 2017 + 6
+    #SEED = 2017 + 6
     MODEL = 'DecomAttn'
     RNN_UNIT = 'gru'
     TRIAL = 5
