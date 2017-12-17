@@ -3,8 +3,8 @@ NLP Final Project
 
 ## Requirements
 - python 2.7
-- tensorflow
-- keras
+- tensorflow (1.2.1)
+- keras (2.1.2)
 - numpy
 - scipy
 - gensim
@@ -18,3 +18,5 @@ NLP Final Project
 To get Glove pre-trained embeddings:
 
 $ wget http://nlp.stanford.edu/data/glove.840B.300d.zip
+
+Then unzip the file and save at a folder called 'embeddings'.
