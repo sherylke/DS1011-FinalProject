@@ -19,7 +19,7 @@ from models.layers import (
 )
 #import tensorflow as tf
 
-np.random.seed(BiMPMConfig.SEED)
+# np.random.seed(BiMPMConfig.SEED)
 
 
 def build_model(embedding_matrix, word_index, char_index=None):
