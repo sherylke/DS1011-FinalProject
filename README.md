@@ -19,4 +19,4 @@ To get Glove pre-trained embeddings:
 
 $ wget http://nlp.stanford.edu/data/glove.840B.300d.zip
 
-Then unzip the file and save at a folder called 'embeddings'.
+Then unzip the file and save at the 'embeddings' folder.
