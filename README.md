@@ -1,7 +1,7 @@
 # DS1011-FinalProject
 This is our final project for course DS-GA 1011 Natural Language Processing with Representation Learning.
 
-In this project we implement two models, the bilateral multi-perspective matching (BiMPM) model and the decomposable attention (DECATT) model to the paraphrase identification task on the Quora question pair dataset. The codes of the original models we implemented are collected from https://www.kaggle.com/lamdang/dl-models (DECATT) and https://github.com/ijinmao/BiMPM_keras (BiMPM).
+In this project we implement two models, the bilateral multi-perspective matching (BiMPM) model and the decomposable attention (DECATT) model to the paraphrase identification task on the Quora question pair dataset. The codes of the original models we implemented are collected from https://www.kaggle.com/lamdang/dl-models (DECATT) and https://github.com/ijinmao/BiMPM_keras (BiMPM). Both are implemented on Keras with a tensorflow backend.
 
 
 ## Requirements
